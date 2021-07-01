@@ -59,6 +59,6 @@ After running these commands, the ANPR GUI should launch, there you will see ins
 ## Examples
 Here is a good example of a detected plate: 
 ![good_example](JPGs/good_example.jpg)
-<img src="JPGs/good_example.jpg" width="200">
+<img src="JPGs/good_example.JPG" width="200">
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
