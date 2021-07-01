@@ -20,7 +20,7 @@ def resize_and_convert(image_path):
 class GUI:
     def __init__(self, db_connection):
         self.db = db_connection
-        self.last_dir = "."
+        self.last_dir = ".\\Samples"
         self.root = Tk()
         self.root.title('ANPR')
         self.root.geometry("700x360")
@@ -58,7 +58,7 @@ class GUI:
         self.browse_entry = Entry(self.rightFrame, width=40)
         self.browse_entry.grid(row=2, column=0, padx=10, pady=2)
 
-        self.output_number = Text(self.rightFrame, width=30, height=2, takefocus=0)
+        self.output_number = Text(self.rightFrame, width=30, height=3, takefocus=0)
         self.output_number.grid(row=4, column=0, padx=10, pady=2)
 
         self.button_detect = Button(self.btnFrame, text="Detect", command=self.detect)
@@ -72,6 +72,7 @@ class GUI:
 
         Label(self.rightFrame, text="Result:").grid(row=3, column=0, padx=10, pady=2)
 
+        # Pointers initializations
         self.cur_lp = NONE
         self.masked_lp = NONE
 
@@ -97,13 +98,13 @@ class GUI:
         self.output_number.delete("1.0", END)
         if self.cur_lp.lp_valid:
             decision = self.cur_lp.get_lp_decision()
-            self.output_number.insert("1.0", self.cur_lp.lp_num + decision[0])
-            self.db.execute("INSERT INTO Decisions VALUES (\"%s\", \"%s\", %f)"
-                            % (self.cur_lp.lp_num, decision[0], time.time()))
+            self.output_number.insert("1.0", self.cur_lp.lp_num + decision[0] + "\n" + decision[1])
+            self.db.execute("INSERT INTO Decisions VALUES (\"%s\", \"%s\", \"%s\", %f)"
+                            % (self.cur_lp.lp_num, decision[0], decision[1], time.time()))
         else:
             self.output_number.insert("1.0", self.cur_lp.OCR_results['OCRExitMessage'])
-            self.db.execute("INSERT INTO Decisions VALUES (\"%s\", \"%s\", %f)"
-                            % (self.cur_lp.lp_num, "OCR ERROR", time.time()))
+            self.db.execute("INSERT INTO Decisions VALUES (\"%s\", \"%s\", \"%s\", %f)"
+                            % (self.cur_lp.lp_num, "OCR ERROR", "-", time.time()))
 
     def end_mainloop(self):
         self.root.destroy()
@@ -126,15 +127,15 @@ class LP:
     def get_ocr_results(self):
         pass
 
-    def get_lp_decision(self):  # Returns (True if
+    def get_lp_decision(self):
         if len(self.lp_num) < 5:
             return 'Access Denied', 'Plate number too short'
         if self.lp_num.endswith(('6', 'G')):
-            return 'Access Denied', 'Public transportation is unauthorized'
+            return 'Access Denied', 'Public transportation unauthorized'
         elif any(c in self.lp_num for c in ['L', 'M']):
-            return 'Access Denied', 'Military and law enforcement vehicles prohibited'
+            return 'Access Denied', 'Military/police prohibited'
         elif not re.search('[a-zA-Z]', self.lp_num):
-            return 'Access Denied', 'Plate number does not contain any letters'
+            return 'Access Denied', 'Number doesn\'t contain letters'
         else:
             return 'Access Granted', '-'
 
@@ -147,7 +148,7 @@ def main():
     c.execute("""CREATE TABLE Decisions (
     license_plate text,
     decision text,
-    
+    comment text,
     timestamp real
     )""")
     GUI(c)

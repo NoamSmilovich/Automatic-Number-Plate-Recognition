@@ -2,9 +2,9 @@
 ![anpr](JPGs/anpr.jpg)
 ## Intro
 The project is an automatic number plate recognition program. It is made up of 3 modules:
- 1. GUI -- Responsible for the programs interface and essentially is the main module running the program.
+ 1. GUI -- Responsible for the program's interface and essentially is the main module running the program.
  2. LPD -- The module responsible for the license plate detection using image processing techniques.
- 3. OCR -- The module which interfaces with an online OCR API.
+ 3. OCR -- The module which interfaces with the online OCR API.
 
 This repo contains the code files of each of the modules along with license plate samples.
 
@@ -12,13 +12,14 @@ This repo contains the code files of each of the modules along with license plat
 - Get a deeper understanding of image processing with OpenCV
 - Experiment with GUI design
 - Interface with an online API using Python
+- Learn some basic usage of SQL
 
 ## Installation
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 #### Requirements
 This program was tested on Windows 10, 64 bit with Python 3.8 installed.
 #### Step-by-Step Procedure
-In order to set the virtual environment, apriori installation of virtualenv platform is required.
+In order to set the virtual environment, installation of virtualenv platform is required.
 Use the following commands to create a new working virtual environment with all the required dependencies.
 ```
 git clone https://github.com/NoamSmilovich/Automatic-Number-Plate-Recognition.git

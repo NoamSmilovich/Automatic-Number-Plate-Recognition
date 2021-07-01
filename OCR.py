@@ -58,13 +58,15 @@ def get_lp_num(image_path):
     print(results)
     if results['IsErroredOnProcessing'] is False:
         parsed_text = results['ParsedResults'][0]['ParsedText']
+        file_parse_message = file_parse_exit_message(results)
     else:
         parsed_text = ''
+        file_parse_message = 'Error processing'
     return {
         'ParsedText': parsed_text,
         'IsError': results['IsErroredOnProcessing'],
         'OCRExitMessage': ocr_exit_message(results),
-        'FileParseExitMessage': file_parse_exit_message(results)
+        'FileParseExitMessage': file_parse_message
     }
 
 
