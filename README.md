@@ -61,5 +61,8 @@ After running these commands, the ANPR GUI should launch, there you will see ins
 |----------|:-------------:|
 |<img src="JPGs/good_example.JPG" width="500"> |<img src="JPGs/bad_example.JPG" width="500"> |
 
+The bad example plate has a large shadow on it, causing the image processing to yield results unrecognizable to the OCR API.
+Some images may be so degraded, no image processing may be enough to yield good enough results, which is why sometimes several images are used.
+
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
