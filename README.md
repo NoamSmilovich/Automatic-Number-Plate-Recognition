@@ -35,7 +35,7 @@ There are seven primary algorithms that an ANPR
    
 Since this project is not a commercial software, not all the algorithms listed here were employed, 
 resulting in a relatively high error rate. For example each license plate detection here only uses one image,
-instead of averaging results from multiple images. This software relies on using yellow masking,
+instead of averaging results from multiple images. In addition, this software relies on yellow masking,
 as israeli license plates are mostly yellow, so if this software were to be used on plates from a different country
 which uses differently colored plates, it may not work as well.
 
