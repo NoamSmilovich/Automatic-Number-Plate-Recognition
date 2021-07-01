@@ -14,6 +14,28 @@ This repo contains the code files of each of the modules along with license plat
 - Interface with an online API using Python
 - Learn some basic usage of SQL
 
+## ANPR Background
+There are two main approaches to automatic number plate recognition:
+- ANPR using classical image processing techniques
+- ANPR using machine learning algorithms
+
+In this project classical image processing techniques were employed.   
+There are seven primary algorithms that an ANPR
+  software requires for identifying a license plate:
+  
+1. Plate localization- responsible for finding and isolating the plate on the picture
+2. Plate orientation and sizing – compensates for the skew of the plate and adjusts the dimensions to the required size
+3. Normalization – adjusts the brightness and contrast of the image
+4. Character segmentation – finds the individual characters on the plates
+5. Optical character recognition
+6. Syntactical/Geometrical analysis – check characters and positions against country-specific rules
+7. The averaging of the recognised value over multiple fields/images to produce a more reliable or confident result,
+   especially given that any single image may contain a reflected light flare,
+   be partially obscured, or possess other obfuscating effects.
+   
+Since this project is not a commercial software, not all the algorithms listed here were employed, 
+resulting in a relatively high error rate.
+
 ## Installation
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 #### Requirements

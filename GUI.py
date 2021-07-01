@@ -115,7 +115,6 @@ class LP:
         self.image_path = path
         if os.path.isfile(self.image_path) and self.image_path.lower().endswith(('.jpg', '.jpeg', '.png')):
             self.original_image = cv2.imread(self.image_path)
-            # self.resized_image = resize_and_convert(self.image_path)
             self.masked_image = LPD.mask_plate(self.image_path)
             self.OCR_results = OCR.get_lp_num(self.masked_image)
             self.lp_num = self.OCR_results['ParsedText'].replace(' ', '')
