@@ -140,9 +140,9 @@ class LP:
 
 
 def main():
-    if os.path.isfile('test.db'):  # Check if previous DB exists and if so delete it
-        os.remove('test.db')
-    conn = sq.connect('test.db')
+    if os.path.isfile('Plate_decisions.db'):  # Check if previous DB exists and if so delete it
+        os.remove('Plate_decisions.db')
+    conn = sq.connect('Plate_decisions.db')
     c = conn.cursor()
     c.execute("""CREATE TABLE Decisions (
     license_plate text,
