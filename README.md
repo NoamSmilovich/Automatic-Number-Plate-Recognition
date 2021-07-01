@@ -51,6 +51,6 @@ python -m virtualenv .
 pip install -r requirements.txt
 GUI.py
 ```
-
+After running these commands, the ANPR GUI should launch, there you will see instructions on how to use the program.
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
