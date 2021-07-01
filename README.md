@@ -34,7 +34,10 @@ There are seven primary algorithms that an ANPR
    be partially obscured, or possess other obfuscating effects.
    
 Since this project is not a commercial software, not all the algorithms listed here were employed, 
-resulting in a relatively high error rate.
+resulting in a relatively high error rate. For example each license plate detection here only uses one image,
+instead of averaging results from multiple images. This software relies on using yellow masking,
+as israeli license plates are mostly yellow, so if this software were to be used on plates from a different country
+which uses differently colored plates, it may not work as well.
 
 ## Installation
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -52,5 +55,10 @@ pip install -r requirements.txt
 GUI.py
 ```
 After running these commands, the ANPR GUI should launch, there you will see instructions on how to use the program.
+
+## Examples
+Here is a good example of a detected plate: 
+![good_example](JPGs/good_example.jpg)
+<img src="JPGs/good_example.jpg" width="200">
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
