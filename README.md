@@ -59,7 +59,7 @@ After running these commands, the ANPR GUI should launch, there you will see ins
 ## Examples
 | Good     |      Bad      |
 |----------|:-------------:|
-|<img src="JPGs/good_example.JPG" width="400"> |<img src="JPGs/bad_example.JPG" width="400"> |
+|<img src="JPGs/good_example.JPG" width="500"> |<img src="JPGs/bad_example.JPG" width="500"> |
 
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
