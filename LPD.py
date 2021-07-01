@@ -39,10 +39,10 @@ def mask_plate(image_path):
     blur = cv2.GaussianBlur(smooth, (9, 9), 0)
     ret3, th3 = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     kernel = np.ones((4, 4), np.uint8)
-    eroded = cv2.erode(th3, kernel, iterations=7)
+    eroded = cv2.erode(th3, kernel, iterations=5)
     blur = cv2.GaussianBlur(eroded, (21, 21), 0)
     kernel = np.ones((5, 5), np.uint8)
-    dilated = cv2.dilate(blur, kernel, iterations=7)
+    dilated = cv2.dilate(blur, kernel, iterations=6)
     ret, img = cv2.threshold(dilated, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)  # Apply threshold
 
     # Saving masked image to file and returning its path

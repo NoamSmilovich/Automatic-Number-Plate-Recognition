@@ -55,7 +55,7 @@ def ocr_space_url(url, overlay=False, api_key='b754bcd9cf88957', language='eng')
 def get_lp_num(image_path):
     test_file = ocr_space_file(filename=image_path)
     results = json.loads(test_file)
-    print(results)
+    # print(results)  # Print for debugging purposes
     if results['IsErroredOnProcessing'] is False:
         parsed_text = results['ParsedResults'][0]['ParsedText']
         file_parse_message = file_parse_exit_message(results)
