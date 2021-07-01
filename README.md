@@ -57,8 +57,9 @@ GUI.py
 After running these commands, the ANPR GUI should launch, there you will see instructions on how to use the program.
 
 ## Examples
-Here is a good example of a detected plate: 
-![good_example](JPGs/good_example.jpg)
-<img src="JPGs/good_example.jpg" width="200">
+| Good     |      Bad      |
+|----------|:-------------:|
+|<img src="JPGs/good_example.JPG" width="400"> |<img src="JPGs/bad_example.JPG" width="400"> |
+
 ### Author
 * **Noam Smilovich** - *noamsmi123@gmail.com*
